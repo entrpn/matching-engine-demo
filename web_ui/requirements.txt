@@ -1,0 +1,5 @@
+gradio
+torch
+torchvision
+google-cloud-aiplatform
+grpcio-tools

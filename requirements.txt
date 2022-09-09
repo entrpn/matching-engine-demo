@@ -1,0 +1,6 @@
+kaggle
+torch 
+torchvision
+google-cloud-storage
+google-cloud-aiplatform
+grpcio-tools
