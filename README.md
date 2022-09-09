@@ -1,4 +1,5 @@
 # Matching Engine Demo
+![](./images/matching_engine_demo.gif)
 
 In this demo, we'll create a dog breed search using Kaggle's dog breeds [dataset](https://www.kaggle.com/datasets/eward96/dog-breed-images) and GCP's [Matching Engine](https://cloud.google.com/vertex-ai/docs/matching-engine/overview).
 
