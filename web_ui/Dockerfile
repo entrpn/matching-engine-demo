@@ -20,11 +20,6 @@ RUN ls -ll
 
 ARG port
 ARG grpc_ip
-ARG images_directory
-
-RUN mkdir images && find $images_directory -name '*.jpg' -exec cp -t images/ {} +
-
-RUN ls -ll images/
 
 ENV SERVER_PORT=$port
 ENV GRPC_IP=$grpc_ip

@@ -52,13 +52,25 @@ def main(opt):
             request.float_val.append(val)
         
         response = stub.Match(request)
-        print(response)
+        neighbors = []
+        i=0
+        for neighbor in response.neighbor:
+            neighbors.append(f"images/{neighbor.id}.jpg")
+            if i > 8:
+                break
+            i+=1
 
-        return list_embeddings, embedding_img
+        return neighbors
+        
 
     gr.Interface(fn=predict,
+                title='Matching Engine Demo',
+                description='Click on any of the samples below and click submit.',
                 inputs=gr.Image(type='pil'),
-                outputs=[gr.Textbox(),"image"]).launch(share=False, 
+                examples=['./images/bernese1.jpg','./images/chihuahua1.jpg','./images/collie1.jpg','./images/dach1.jpg','./images/jr10.jpg',
+                './images/husky1.jpg','./images/pug8.jpg','./images/gr10.jpg','./images/corgi6.jpg'],
+                outputs=[gr.Gallery().style(grid=3)]
+                ).queue(concurrency_count=3).launch(share=False, 
                                                 debug=False, 
                                                 server_name='0.0.0.0', 
                                                 server_port=opt.port)

@@ -32,8 +32,8 @@ In this demo, we'll create a dog breed search using Kaggle's dog breeds [dataset
 
     ```shell
     cd web_ui
-    mkdir tmp
-    find ../data/ -name '*.jpg' -exec cp -t tmp/ {} +
+    mkdir images
+    find ../data/ -name '*.jpg' -exec cp -t images/ {} +
     docker build . --build-arg port=80 --build-arg grpc_ip=<grpc_ip> -t gcr.io/<project_id>/matching-engine-ui:latest
     docker push gcr.io/<project_id>/matching-engine-ui:latest
     ```
@@ -49,5 +49,5 @@ In this demo, we'll create a dog breed search using Kaggle's dog breeds [dataset
     Now deploy the app
 
     ```shell
-    gcloud run deploy --port 80 matching-engine-ui --image gcr.io/jfacevedo-demos/matching-engine-ui:latest --vpc-connector matching-engine-connector --timeout 500 --region us-central1
+    gcloud run deploy --port 80 matching-engine-ui --image gcr.io/<project_id>/matching-engine-ui:latest --vpc-connector matching-engine-connector --timeout 3600 --region us-central1 --cpu=4 --memory 4Gi
     ```

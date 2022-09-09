@@ -2,4 +2,4 @@ Pipfile*
 *.zip
 data/*
 third_party/*
-web_ui/tmp/*
+web_ui/images/*
